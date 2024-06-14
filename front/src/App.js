@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate, Link } from 'react-router-dom';
-import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
+import { PersonCircle } from 'react-bootstrap-icons'; // Importing the icon
 import { AuthContext } from './context/AuthContext';
 import Register from './components/Register';
 import Login from './components/Login';
@@ -20,7 +21,7 @@ const PublicRoute = ({ children }) => {
 
 const Home = () => (
     <Container>
-        <h1>Hello</h1>
+        <TaskList/>
     </Container>
 );
 
@@ -41,15 +42,21 @@ function App() {
                         <Navbar.Brand href="/">MyApp</Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
-                            <Nav className="mr-auto">
+                            <Nav className="me-auto">
                                 {!isAuthenticated && <Nav.Link as={Link} to="/register">Register</Nav.Link>}
                                 {!isAuthenticated && <Nav.Link as={Link} to="/login">Login</Nav.Link>}
-                                {isAuthenticated && <Nav.Link as={Link} to="/settings">Settings</Nav.Link>}
-                                {isAuthenticated && <Nav.Link as={Link} to="/meal_suggestions">Meal Suggestions</Nav.Link>}
                                 {isAuthenticated && <Nav.Link as={Link} to="/tasks">Tasks</Nav.Link>}
+                                {isAuthenticated && <Nav.Link as={Link} to="/meal_suggestions">Meal Suggestions</Nav.Link>}
+                                
                             </Nav>
                             {isAuthenticated && (
-                                <Button variant="outline-light" onClick={logout}>Logout</Button>
+                                <Nav className="ms-auto">
+                                    <NavDropdown title={<PersonCircle size={30} />} id="basic-nav-dropdown">
+                                        <NavDropdown.Item as={Link} to="/settings">Settings</NavDropdown.Item>
+                                        <NavDropdown.Divider />
+                                        <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
+                                    </NavDropdown>
+                                </Nav>
                             )}
                         </Navbar.Collapse>
                     </Container>

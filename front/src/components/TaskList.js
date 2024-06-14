@@ -78,6 +78,7 @@ const TaskList = () => {
                                     <td>{task.repeat_interval}</td>
                                     <td>
                                         <Button variant="warning" className="mr-2" onClick={() => handleEditTask(task)}>Edit</Button>
+                                        <h> </h>
                                         <Button variant="danger" onClick={() => handleDeleteTask(task.id)}>Delete</Button>
                                     </td>
                                 </tr>

@@ -91,7 +91,8 @@ def settings():
         current_user.gender = data['gender']
         current_user.activity_level = data['activity_level']
         current_user.cuisine_type = data.get('cuisine_type')  # Update cuisine type
-        if 'password' in data:
+        if 'password' in data and data['password'] :
+            print ("enter")
             current_user.password = generate_password_hash(data['password'], method='pbkdf2:sha256', salt_length=16)
         current_user.bmi = current_user.calculate_bmi()
         current_user.daily_caloric_needs = current_user.calculate_caloric_needs()
@@ -232,7 +233,7 @@ def meal_suggestion():
         }[meal]
         
         url = f"https://api.edamam.com/api/recipes/v2?type=public&mealType={meal}&app_id=8d43fed7&app_key=850486e1e8e6d652c4ca6efbe0894894&diet=low-carb&calories=0-{int(calories)}&cuisineType={cuisine_type}"
-        
+        print(url)
         response = requests.get(url)
         data = response.json()
         if 'hits' in data:

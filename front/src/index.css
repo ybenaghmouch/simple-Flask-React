@@ -11,3 +11,42 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.button-space {
+  margin-right: 0.5rem; /* Adjust the margin as needed */
+}
+
+/* Ensure consistent margin around all buttons */
+button {
+  margin: 0.5rem; /* Adjust the margin as needed */
+  padding: 0.5rem 1rem; /* Adjust the padding as needed */
+}
+
+/* Other global styles remain unchanged */
+.form-control {
+  margin-bottom: 1rem;
+}
+
+.nav-link {
+  margin-right: 1rem;
+}
+
+.dropdown-item {
+  margin: 0.2rem 0;
+}
+
+.card {
+  margin-bottom: 1.5rem;
+}
+
+.container > .row {
+  margin-bottom: 2rem;
+}
+
+.element-class {
+  margin: 1rem;
+}
+
+.navbar-nav .nav-link {
+  margin-right: 1rem;
+}
