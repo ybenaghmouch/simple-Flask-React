@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <h2>Meal Suggestions</h2>
+        {% if suggestions %}
+            {% for meal, recipes in suggestions.items() %}
+                <h3>{{ meal|capitalize }}</h3>
+                <div class="row">
+                    {% for recipe in recipes %}
+                        <div class="col-md-4">
+                            <div class="card mb-4">
+                                <img class="card-img-top" src="{{ recipe['recipe']['image'] }}" alt="{{ recipe['recipe']['label'] }}">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ recipe['recipe']['label'] }}</h5>
+                                    <p class="card-text">{{ recipe['recipe']['source'] }}</p>
+                                    <a href="{{ recipe['recipe']['url'] }}" class="btn btn-primary" target="_blank">View Recipe</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No meal suggestions available at the moment.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

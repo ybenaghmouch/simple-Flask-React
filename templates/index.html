@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-10">
+        <h1>Welcome to the Task Manager</h1>
+        <p>This is your simple task management application with user authentication and CRUD functionality for tasks. You can create, update, view, and delete your tasks easily.</p>
+        
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('task_list') }}" class="btn btn-primary">View Your Tasks</a>
+        {% else %}
+            <a href="{{ url_for('login') }}" class="btn btn-primary">Login</a>
+            <a href="{{ url_for('register') }}" class="btn btn-secondary">Register</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

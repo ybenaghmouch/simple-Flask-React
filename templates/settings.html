@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h2>Settings</h2>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.username.label(class="form-label") }}
+                {{ form.username(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.email.label(class="form-label") }}
+                {{ form.email(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.password.label(class="form-label") }}
+                {{ form.password(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.confirm_password.label(class="form-label") }}
+                {{ form.confirm_password(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.weight.label(class="form-label") }}
+                {{ form.weight(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.height.label(class="form-label") }}
+                {{ form.height(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.age.label(class="form-label") }}
+                {{ form.age(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.gender.label(class="form-label") }}
+                {{ form.gender(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.activity_level.label(class="form-label") }}
+                {{ form.activity_level(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.cuisine_type.label(class="form-label") }}
+                {{ form.cuisine_type(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

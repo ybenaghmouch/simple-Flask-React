@@ -1,0 +1,95 @@
+body {
+    background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.navbar.fancy-navbar {
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.navbar.fancy-navbar .navbar-nav .nav-link {
+    color: #555;
+    transition: color 0.3s ease;
+}
+
+.navbar.fancy-navbar .navbar-nav .nav-link:hover {
+    color: #007bff;
+}
+
+.navbar-brand .logo {
+    height: 40px;
+    width: auto;  /* Maintain the aspect ratio */
+    margin-right: 10px;
+}
+
+
+.btn-primary, .btn-secondary {
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+/* General body background */
+body {
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+}
+
+/* Form group styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Form label styling */
+.form-label {
+    font-size: 1.2em;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+/* Form control input styling */
+.form-control {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid #fff;
+    border-radius: 4px;
+    color: #fff;
+    padding: 10px;
+    transition: background 0.3s, border 0.3s;
+}
+
+/* Form control input focus styling */
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.4);
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Update navbar for better contrast with blue background */
+.navbar.fancy-navbar {
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.fancy-navbar .navbar-nav .nav-link {
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.navbar.fancy-navbar .navbar-nav .nav-link:hover {
+    color: #007bff;
+}
