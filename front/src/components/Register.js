@@ -3,11 +3,12 @@ import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { useNavigate } from 'react-router-dom';
 // Set default axios configuration to include credentials
 axios.defaults.withCredentials = true;
 
 const Register = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         username: '',
         email: '',
@@ -30,13 +31,16 @@ const Register = () => {
         axios.post('/api/register', formData)
             .then(response => {
                 if (response.status === 201) {
+                    navigate('/');
                     toast.success(response.data.message, {
                         position: "top-right"
                     });
+                    
                 } else if (response.status === 400) {
                     toast.error(response.data.message, {
                         position: "top-right"
                     });
+                    
                 }
             })
             .catch(error => {

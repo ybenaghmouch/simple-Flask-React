@@ -10,16 +10,16 @@ import time
 import requests
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your_secret_key'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///tasks.db'
+app.config['SECRET_KEY'] = '5UP3R_53cr3T'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///pfa.db'
 
 # Email configuration
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USERNAME'] = 'kabbarojo2020@gmail.com'
-app.config['MAIL_PASSWORD'] = 'xtuw izws jrmz unon'
-app.config['MAIL_DEFAULT_SENDER'] = 'kabbarojo2020@gmail.com'
+app.config['MAIL_USERNAME'] = '' 
+app.config['MAIL_PASSWORD'] = '' 
+app.config['MAIL_DEFAULT_SENDER'] = ''
 
 db.init_app(app)
 mail = Mail(app)
@@ -275,7 +275,7 @@ def check_for_upcoming_tasks():
                     print(f"User not found for task: {task.title}")
             
             print(f"Sleeping for 60 seconds")
-            time.sleep(60)  # Check every minute
+            time.sleep(60*1)  # Check every minute
 
 # Start the background task
 threading.Thread(target=check_for_upcoming_tasks, daemon=True).start()
