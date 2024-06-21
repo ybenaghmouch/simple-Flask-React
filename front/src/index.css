@@ -50,3 +50,153 @@ button {
 .navbar-nav .nav-link {
   margin-right: 1rem;
 }
+
+
+/* custom.css */
+
+/* Body and Containers */
+body {
+  background-color: #f8f9fa; /* Light gray background */
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  padding: 2rem 1rem;
+}
+
+.card {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+/* Navbar */
+.navbar {
+  background-color: #007bff; /* Primary blue background */
+}
+
+.navbar-brand {
+  color: #fff !important;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.nav-link {
+  color: #fff !important;
+}
+
+.nav-link:hover {
+  color: #d1e7ff !important; /* Light blue on hover */
+}
+
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Forms */
+.form-control {
+  border-radius: 5px;
+  box-shadow: none;
+  transition: box-shadow 0.2s;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  font-weight: bold;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  border-radius: 5px;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  border-radius: 5px;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+/* Modal */
+.modal-content {
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-title {
+  font-weight: bold;
+}
+
+.modal-footer {
+  border-top: none;
+}
+
+/* Toasts */
+.toast-container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1055;
+}
+
+.toast {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.toast-header {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.toast-body {
+  font-size: 1rem;
+}
+
+.delete-account-button {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+
+.current-task {
+  background-color: #00e6e6;
+}

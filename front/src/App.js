@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate, Link } from 'react-router-dom';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
-import { PersonCircle } from 'react-bootstrap-icons'; // Importing the icon
+import { PersonCircle } from 'react-bootstrap-icons';
 import { AuthContext } from './context/AuthContext';
 import Register from './components/Register';
 import Login from './components/Login';
@@ -21,7 +21,7 @@ const PublicRoute = ({ children }) => {
 
 const Home = () => (
     <Container>
-        <TaskList/>
+        <TaskList />
     </Container>
 );
 
@@ -43,10 +43,13 @@ function App() {
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-nav">
                             <Nav className="me-auto">
-                                {!isAuthenticated && <Nav.Link as={Link} to="/register">Register</Nav.Link>}
-                                {!isAuthenticated && <Nav.Link as={Link} to="/login">Login</Nav.Link>}
+                                
                                 {isAuthenticated && <Nav.Link as={Link} to="/tasks">Tasks</Nav.Link>}
                                 {isAuthenticated && <Nav.Link as={Link} to="/meal_suggestions">Meal Suggestions</Nav.Link>}
+                            </Nav>
+                            <Nav className="ms-auto">
+                                {!isAuthenticated && <Nav.Link as={Link} to="/register">Register</Nav.Link>}
+                                {!isAuthenticated && <Nav.Link as={Link} to="/login">Login</Nav.Link>}
                                 
                             </Nav>
                             {isAuthenticated && (

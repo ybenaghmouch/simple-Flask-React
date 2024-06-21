@@ -78,6 +78,17 @@ def logout():
     logout_user()
     return jsonify({"message": "Logout successful!"}), 200
 
+@app.route('/api/delete_user', methods=['DELETE'])
+@login_required
+def delete_user():
+    try:
+        user = current_user
+        db.session.delete(user)
+        db.session.commit()
+        return jsonify({"message": "User deleted successfully!"}), 200
+    except Exception as e:
+        return jsonify({"message": str(e)}), 500
+
 @app.route('/api/settings', methods=['GET', 'POST'])
 @login_required
 def settings():
@@ -174,8 +185,8 @@ def manage_task(task_id):
     
     if request.method == 'PUT':
         data = request.get_json()
-        start_time = datetime.strptime(data['start_time'], '%Y-%m-%dT%H:%M:%S')
-        end_time = datetime.strptime(data['end_time'], '%Y-%m-%dT%H:%M:%S')
+        start_time = datetime.strptime(data['start_time'], '%Y-%m-%dT%H:%M')
+        end_time = datetime.strptime(data['end_time'], '%Y-%m-%dT%H:%M')
         
         if start_time <= datetime.utcnow():
             return jsonify({"message": "Start time must be greater than the current time"}), 400

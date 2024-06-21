@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import { Form, Button, Container, Row, Col, Modal } from 'react-bootstrap';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -20,6 +20,8 @@ const Settings = () => {
         password: '',
         confirmPassword: ''
     });
+
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
 
     useEffect(() => {
         // Fetch user data on component mount
@@ -62,6 +64,26 @@ const Settings = () => {
                 const errorMessage = error.response && error.response.data && error.response.data.message
                     ? error.response.data.message
                     : "Failed to update settings. Please try again.";
+                toast.error(errorMessage, {
+                    position: "top-right"
+                });
+            });
+    };
+
+    const handleDeleteUser = () => {
+        axios.delete('/api/delete_user')
+            .then(response => {
+                toast.success(response.data.message, {
+                    position: "top-right"
+                });
+                // Perform logout and redirect to login page
+                localStorage.removeItem('isAuthenticated');
+                window.location.href = '/login';
+            })
+            .catch(error => {
+                const errorMessage = error.response && error.response.data && error.response.data.message
+                    ? error.response.data.message
+                    : "Failed to delete user. Please try again.";
                 toast.error(errorMessage, {
                     position: "top-right"
                 });
@@ -226,13 +248,35 @@ const Settings = () => {
                             />
                         </Form.Group>
 
-                        <Button variant="primary" type="submit">
-                            Save Settings
-                        </Button>
+                        <div className="form-actions">
+                            <Button variant="primary" type="submit">
+                                Save Settings
+                            </Button>
+                            <Button variant="danger" onClick={() => setShowDeleteModal(true)}>
+                                Delete Account
+                            </Button>
+                        </div>
                     </Form>
                     <ToastContainer />
                 </Col>
             </Row>
+
+            <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Confirm Delete</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    Are you sure you want to delete your account? This action cannot be undone.
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>
+                        Cancel
+                    </Button>
+                    <Button variant="danger" onClick={handleDeleteUser}>
+                        Delete
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </Container>
     );
 };
